@@ -1,0 +1,29 @@
+mkdir djangoproject
+cd C:\Users\Name\djangoproject
+
+# Create and activate virtual environment
+python -m virtualenv venv
+cd C:\Users\Name\djangoproject\venv\Scripts
+activate
+
+# Install packages
+pip install django==1.10.7
+pip install django-mssql==1.8
+pip install pyodbc==4.0.24
+
+# Create project
+cd C:\Users\Name\djangoproject\venv
+mkdir Project
+cd C:\Users\Name\djangoproject\venv\Project
+django-admin startproject project .
+python manage.py migrate
+
+# Create app
+python manage.py startapp app
+# Add 'app' to project/settings.py/INSTALLED_APPS
+python manage.py migrate app
+
+python manage.py createsuperuser
+
+python manage.py runserver
+# http://127.0.0.1:8000/
