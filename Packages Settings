@@ -14,6 +14,7 @@ pip install pypiwin32==218.3
 
 # pip list
 # version for Django 1.10.7 and Python 2.7
+# not all necessary, install those needed in project
 amqp                1.4.9
 anyjson             0.3.3
 billiard            3.3.0.23
