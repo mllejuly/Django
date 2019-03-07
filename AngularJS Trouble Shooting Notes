@@ -1,0 +1,43 @@
+# AngularJS Trouble Shooting Notes
+
+
+*********************************************************************************************
+
+Date: 2019.3.7
+
+Problem:
+ng-optiona cannot work for HTML after applying chosen.jquery.min.js
+
+Solution:
+step 1: import angular-chosen.min.js into your project
+step 2: add module 'localytics.directives' to app
+var app = angular.module('ng-app_name', ['module_name','localytics.directives']);
+
+*********************************************************************************************
+
+Date: 2019.3.7
+
+Notes:
+There is a simple and fast way to do information retrieval work by AngularJS.
+In the last project, I user redirect function, ng-click for page redirection and loading resualt data.
+Now you can just write a resualt data loading function to overwrite the ng-init data loading function.
+
+app.controller('mainCtrl', ['$scope', '$http', "$window", function ($scope, $http, $window) {
+    $scope.data = []
+    $scope.loadData = function () {
+        $http({
+                method: 'get',
+                url: "/getData/",
+                headers: {
+                    'content-Type': 'application/json'
+                },
+            })
+            .then(successcallback, errorcallback)
+      }
+    function successcallback(data) {
+        $scope.data = data.data
+    function errorcallback(data) {
+        alert("Please subscribe a service to get Alert.")
+    }
+    
+    $scope.data = $scope.searchKeyword_result
