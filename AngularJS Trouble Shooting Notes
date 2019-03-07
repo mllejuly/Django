@@ -56,8 +56,8 @@ app.controller('mainCtrl', ['$scope', '$http', "$window", function ($scope, $htt
         })
         .then(successSearchCallback, errorSearchCallback);
     }
-
-
+    
+    
     function successSearchCallback(data){
         json_search = JSON.parse(data.data)
         $scope.searchKeyword_result = json_search.searchKeyword_result
@@ -67,8 +67,6 @@ app.controller('mainCtrl', ['$scope', '$http', "$window", function ($scope, $htt
         $scope.data = $scope.searchKeyword_result
         $scope.$apply
     }
-
-
     function errorSearchCallback(data){
     }
 
