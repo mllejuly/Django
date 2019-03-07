@@ -47,8 +47,8 @@ python manage.py runserver
 
 
 *******************************************************************************************
-
 # project/settings.py
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
