@@ -1,0 +1,12 @@
+# Problem Shooting
+
+
+Problem:
+ng-optiona cannot work for HTML after applying chosen.jquery.min.js
+Solution:
+step 1: import angular-chosen.min.js into your project
+step 2: add module 'localytics.directives' to app
+var app = angular.module('ng-app_name', ['module_name','localytics.directives']);
+
+
+
