@@ -1,0 +1,51 @@
+# supported packages should be installed under project directory
+# otherwise they will not work for virtual environment
+
+
+pip install Django==1.10.7
+pip install pyodbc==4.0.17
+pip install django-pyodbc
+pip install django-pyodbc-azure
+pip install django-sqlserver
+pip install django-mssql
+pip install django-pytds
+pip install pypiwin32==218.3
+
+
+# pip list
+# version for Django 1.10.7 and Python 2.7
+amqp                1.4.9
+anyjson             0.3.3
+billiard            3.3.0.23
+celery              3.1.26.post2
+certifi             2018.11.29
+chardet             3.0.4
+Django              1.10.7
+django-appconf      1.0.2
+django-celery       3.2.2
+django-mssql        1.8
+django-pyodbc-azure 1.10.4.0
+djangorestframework 3.9.0
+djangotoolbox       1.8.0
+drf-nested-routers  0.9.0
+forms2              1.1.2
+html                1.16
+html-parser         0.2
+HTMLParser          0.0.2
+idna                2.8
+inflect             0.3.1
+kombu               3.0.37
+langdetect          1.0.7
+pip                 18.1
+ply                 3.11
+pyasn1              0.4.5
+pyasn1-modules      0.2.4
+pyodbc              4.0.17
+pytz                2018.7
+requests            2.21.0
+setuptools          40.5.0
+simplejson          3.16.0
+six                 1.12.0
+SQLAlchemy          1.2.18
+urllib3             1.24.1
+wheel               0.32.2
