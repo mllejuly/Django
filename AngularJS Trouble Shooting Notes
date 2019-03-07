@@ -40,4 +40,35 @@ app.controller('mainCtrl', ['$scope', '$http', "$window", function ($scope, $htt
         alert("Please subscribe a service to get Alert.")
     }
     
-    $scope.data = $scope.searchKeyword_result
+        $scope.loadResult = function(){
+        search_keyword = $scope.search.keyword
+        search_news = $scope.search.news
+        console.log(' ************************** search input *************************** ')
+        console.log(search_keyword)
+        console.log(search_news)
+        $http({
+                method: 'POST',
+                url: '/searchKeyword/',
+                data: search_keyword,
+                header: {
+                    'content-Type': 'application/json'
+                }
+        })
+        .then(successSearchCallback, errorSearchCallback);
+    }
+
+
+    function successSearchCallback(data){
+        json_search = JSON.parse(data.data)
+        $scope.searchKeyword_result = json_search.searchKeyword_result
+        console.log(' ****************** search result filtered by keyword ****************** ')
+        console.log($scope.searchKeyword_result)
+        //refresh data to reload result
+        $scope.data = $scope.searchKeyword_result
+        $scope.$apply
+    }
+
+
+    function errorSearchCallback(data){
+    }
+
