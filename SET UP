@@ -1,0 +1,112 @@
+#创建项目
+C:\Users\mlle.july>
+mkdir project
+
+#创建虚拟环境
+C:\Users\mlle.july\project>
+python -m virtualenv venv
+
+#激活虚拟环境
+C:\Users\mlle.july\swift\venv\Scripts>
+activate
+
+#安装Django
+(venv) C:\Users\mlle.july\project\venv>
+pip install Django==1.10.7
+pip install pyodbc==4.0.17
+
+#创建项目
+(venv) C:\Users\mlle.july\project\venv>
+django-admin startproject project .
+
+(venv) C:\Users\mlle.july\project\venv>
+python manage.py migrate
+
+#创建应用程序
+(venv) C:\Users\mlle.july\project\venv>
+python manage.py startapp app
+
+#add app to project/settings.py
+
+(venv) C:\Users\mlle.july\project\venv>
+python manage.py makemigrations app
+
+(venv) C:\Users\mlle.july\project\venv>
+python manage.py migrate app
+
+
+#创建模型
+#app/models.py
+from __future__ import unicode_literals
+from django.db import models
+
+
+class AppModel(models.Model):
+    text = models.TextField()
+
+
+#创建视图
+#app/views.py
+from django.shortcuts import render
+
+
+def appHome(request):
+    return render(request, 'app-home.html')
+
+
+#创建URL
+#project/urls.py
+from django.conf.urls import include, url
+from django.contrib import admin
+
+urlpatterns = [
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('app.urls')),
+]
+
+#app/urls.py
+from django.conf.urls import url
+import views
+
+urlpatterns = [
+    url(r'^app/$', views.appHome, name='appHome'),
+]
+
+
+
+
+amqp                1.4.9
+anyjson             0.3.3
+billiard            3.3.0.23
+celery              3.1.26.post2
+certifi             2018.11.29
+chardet             3.0.4
+Django              1.10.7
+django-appconf      1.0.2
+django-celery       3.2.2
+django-mssql        1.8
+django-pyodbc-azure 1.10.4.0
+djangorestframework 3.9.0
+djangotoolbox       1.8.0
+drf-nested-routers  0.9.0
+forms2              1.1.2
+html                1.16
+html-parser         0.2
+HTMLParser          0.0.2
+idna                2.8
+inflect             0.3.1
+kombu               3.0.37
+langdetect          1.0.7
+pip                 18.1
+ply                 3.11
+pyasn1              0.4.5
+pyasn1-modules      0.2.4
+pyodbc              4.0.17
+pytz                2018.7
+requests            2.21.0
+setuptools          40.5.0
+simplejson          3.16.0
+six                 1.12.0
+SQLAlchemy          1.2.18
+urllib3             1.24.1
+wheel               0.32.2
